@@ -16,8 +16,12 @@
                 <span class="cart-counter" id="cartCounter">0</span>
             </a>
             <div class="user-dropdown" id="userDropdown">
-                <button class="dropdown-btn" id="loginBtn"><i class="fas fa-sign-in-alt"></i> Entrar</button>
-                <button class="dropdown-btn" id="registerBtn"><i class="fas fa-user-plus"></i> Cadastrar</button>
+                <button class="dropdown-btn" id="loginBtn" data-modal-target="#loginModal">
+                    <i class="fas fa-sign-in-alt"></i> Entrar
+                </button>
+                <button class="dropdown-btn" id="registerBtn" data-modal-target="#registerModal">
+                    <i class="fas fa-user-plus"></i> Cadastrar
+                </button>
             </div>
         </div>
     </div>
