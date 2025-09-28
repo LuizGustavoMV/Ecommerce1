@@ -21,7 +21,7 @@
             <div class="footer-column">
                 <h3>Redes Sociais</h3>
                 <div class="social-icons">
-                    <a href=""><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.instagram.com/pulsotech.ltda?igsh=MWhmNW4wbDI2Znl3bQ=="><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
         </div>

@@ -78,7 +78,7 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background-image: url("SIm.png");
+    background-image: url("/assets/images/SIm.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -111,7 +111,7 @@ html, body {
 .header {
 
     background-color: #000;           /* fundo preto para complementar */
-    background-image: url("fundorodape.png");
+    background-image: url("/assets/images/fundorodape.png");
     background-size: auto;            /* mantém o tamanho original da imagem */
     background-position: top center;  /* fixa no topo */
     background-repeat: repeat-x;      /* repete só na horizontal */
@@ -1292,7 +1292,7 @@ html, body {
 
 body {
     font-family: var(--font-primary);
-    background-image: url("SIm.png");
+    background-image: url("/assets/images/SIm.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -1308,7 +1308,7 @@ body {
 
 /* ===== HEADER ===== */
 .header {
-    background-image: url("fundorodape.png");
+    background-image: url("/assets/images/fundorodape.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

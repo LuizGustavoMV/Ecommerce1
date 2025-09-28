@@ -7,7 +7,7 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background-image: url("SIm.png");
+    background-image: url("/assets/images/SIm.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -23,7 +23,7 @@ body {
 
 /* Header */
 .header {
-    background-image: url("fundorodape.png");
+    background-image: url("/assets/images/fundorodape.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

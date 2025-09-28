@@ -11,17 +11,12 @@
     <header class="header">
         <div class="container">
             <div class="logo">
-                <a href="home.html"><img src="assets/images/logo-Photoroom.png" alt="PulsoTech"></a>
+                <a href="home.php"><img src="assets/images/logo-Photoroom.png" alt="PulsoTech"></a>
             </div>
-            <nav class="nav">
-                <a class="nav-btn" href="sobre.html"><i class="fas fa-info-circle"></i> SOBRE</a>
-                <a class="nav-btn" href="produtos.html"><i class="fas fa-shopping-bag"></i> PRODUTOS</a>
-                <a class="nav-btn" href="cti.html"><i class="fas fa-graduation-cap"></i> CTI</a>
-                <a class="nav-btn" href="suporte.html"><i class="fas fa-headset"></i> SUPORTE</a>
-            </nav>
+            <?php include "nav.php"; ?>
             <div class="user-actions">
                 <button class="user-menu-btn" id="userMenuBtn"><i class="fas fa-user"></i></button>
-                <a href="carrinho.html" class="cart-btn">
+                <a href="carrinho.php" class="cart-btn">
                     <i class="fas fa-shopping-cart"></i>
                     <span class="cart-counter" id="cartCounter">0</span>
                 </a>

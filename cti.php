@@ -23,7 +23,7 @@
                     </div>
                     <div class="cti-images">
                         <div class="cti-image-placeholder">
-                             <img src="assets/images/Cti_01.jpg" alt="Imagem do CTI">
+                             <img src="assets/images/Cti_01.png" alt="Imagem do CTI">
                         </div>
                     </div>
                 </div>

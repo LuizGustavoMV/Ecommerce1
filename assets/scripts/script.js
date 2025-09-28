@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 addToCart(product, quantity);
                 
                 // Redireciona para o carrinho
-                window.location.href = 'carrinho.html';
+                window.location.href = 'carrinho.php';
             });
         });
     };
@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCartIcon();
     handleQuantityButtons();
     addModalActionListeners();
-    // (Aqui entraria a lógica do carrinho.html, se estivéssemos nessa página)
+    // (Aqui entraria a lógica do carrinho.php, se estivéssemos nessa página)
     if (document.getElementById('cartItemsContainer')) {
         // Funções da página do carrinho, se houver
     }
