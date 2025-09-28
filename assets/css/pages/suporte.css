@@ -1,0 +1,89 @@
+.support-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-3xl);
+    padding: var(--spacing-2xl) 0;
+}
+
+.faq-section h2, .contact-section h2 {
+    font-family: var(--font-secondary);
+    font-size: clamp(28px, 4vw, 36px);
+    margin-bottom: var(--spacing-2xl);
+    text-align: center;
+    font-weight: 700;
+    background: linear-gradient(135deg, #000000 0%, #3a3a3a 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.faq-item {
+    background: rgba(192, 188, 188, 0.11);
+    backdrop-filter: blur(20px);
+    padding: var(--spacing-xl);
+    margin-bottom: var(--spacing-lg);
+    border-radius: var(--radius-xl);
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    border: 2px solid rgb(58, 57, 57);
+}
+
+.faq-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(8px);
+    box-shadow: var(--shadow-xl);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.contact-form input,
+.contact-form textarea {
+    background: rgba(233, 232, 232, 0.801);
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-lg);
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    font-family: var(--font-primary);
+    transition: all var(--transition-normal);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.contact-form textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+.contact-form button {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    color: white;
+    border: none;
+    padding: var(--spacing-lg) var(--spacing-2xl);
+    border-radius: var(--radius-full);
+    font-weight: 700;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+}
+
+.contact-form button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-xl);
+}
+
+@media (max-width: 1024px) {
+    .support-content {
+        grid-template-columns: 1fr;
+    }
+}

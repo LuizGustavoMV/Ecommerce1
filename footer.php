@@ -4,8 +4,8 @@
             <div class="footer-column">
                 <h3>Institucional</h3>
                 <ul>
-                    <li><a href="#">Sobre a PulsoTech</a></li>
-                    <li><a href="#">Trabalhe Conosco</a></li>
+                    <li><a href="sobre.php">Sobre a PulsoTech</a></li>
+                    <li><a href="produtos.php">Trabalhe Conosco</a></li>
                     <li><a href="#">Termos e Condições</a></li>
                      <li><a href="#">Políticas de Privacidade</a></li>
                 </ul>
@@ -13,9 +13,9 @@
             <div class="footer-column">
                 <h3>Atendimento</h3>
                 <ul>
-                    <li><a href="#">Contato</a></li>
-                    <li><a href="#">Perguntas Frequentes</a></li>
-                    <li><a href="#">Suporte Técnico</a></li>
+                    <li><a href="suporte.php">Contato</a></li>
+                    <li><a href="suporte.php">Perguntas Frequentes</a></li>
+                    <li><a href="suporte.php">Suporte Técnico</a></li>
                 </ul>
             </div>
             <div class="footer-column">

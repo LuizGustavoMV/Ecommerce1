@@ -1,0 +1,196 @@
+.header {
+    background-color: #000;
+    background-image: url("/assets/images/fundorodape.png");
+    background-size: auto;
+    background-position: top center;
+    background-repeat: repeat-x;
+    padding: 15px 0;
+    position: fixed; /* Ajuste para static se necessário */
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.header.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    padding: var(--spacing-md) 0;
+    box-shadow: var(--shadow-lg);
+}
+
+.header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-xl);
+}
+
+.logo img {
+    height: 150px; /* Tamanho ajustado para consistência */
+    width: auto;
+    transition: height var(--transition-normal);
+}
+
+.header.scrolled .logo img {
+    height: 60px;
+}
+
+.nav {
+    display: flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+}
+
+.nav-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid transparent;
+    color: white;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+}
+
+.header.scrolled .nav-btn {
+    color: var(--gray-700);
+}
+
+.header.scrolled .nav-btn:hover {
+    background: rgba(0, 0, 0, 0.1);
+    color: var(--primary-color);
+}
+
+.nav-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.nav-btn.active {
+    background: white;
+    color: var(--primary-color);
+    box-shadow: var(--shadow-xl);
+    transform: translateY(-2px);
+}
+
+.nav-btn i {
+    font-size: 16px;
+}
+
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    position: relative;
+}
+
+.user-menu-btn, .cart-btn {
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    color: var(--gray-700);
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-normal);
+    box-shadow: var(--shadow-md);
+    position: relative;
+    text-decoration: none;
+}
+
+.user-menu-btn:hover, .cart-btn:hover {
+    color: white;
+    transform: scale(1.1);
+    box-shadow: var(--shadow-xl);
+    background-color: var(--primary-color);
+}
+
+.user-dropdown {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: white;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-2xl);
+    padding: var(--spacing-md);
+    min-width: 200px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px) scale(0.95);
+    transition: all var(--transition-normal);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.user-dropdown.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+.dropdown-btn {
+    width: 100%;
+    background: none;
+    border: none;
+    color: var(--gray-700);
+    padding: var(--spacing-md) var(--spacing-lg);
+    text-align: left;
+    cursor: pointer;
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-normal);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    font-weight: 500;
+}
+
+.dropdown-btn:hover {
+    background: var(--gray-100);
+    color: var(--primary-color);
+    transform: translateX(4px);
+}
+
+.cart-counter {
+    position: absolute;
+    top: -2px;
+    right: -4px;
+    background-color: var(--mec-color);
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 11px;
+    font-weight: bold;
+    border: 2px solid white;
+    min-width: 22px;
+    min-height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Responsividade do Header */
+@media (max-width: 768px) {
+    .header .container {
+        flex-direction: column;
+        gap: var(--spacing-lg);
+    }
+    .nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: var(--spacing-sm);
+    }
+}

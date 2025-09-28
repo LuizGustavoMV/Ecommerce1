@@ -3,8 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PulsoTech - Inovação e Tecnologia</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <title>PulsoTech - Inovação e Tecnologia</title> <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/components/header.css">
+    <link rel="stylesheet" href="assets/css/components/footer.css">
+    <link rel="stylesheet" href="assets/css/components/card.css">
+    <link rel="stylesheet" href="assets/css/components/modal.css">
+    
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>

@@ -4,29 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meu Carrinho - PulsoTech</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/components/header.css">
+    <link rel="stylesheet" href="assets/css/components/footer.css">
+    <link rel="stylesheet" href="assets/css/components/modal.css">
+
+    <link rel="stylesheet" href="assets/css/pages/carrinho.css">
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <div class="logo">
-                <a href="home.php"><img src="assets/images/logo-Photoroom.png" alt="PulsoTech"></a>
-            </div>
-            <?php include "nav.php"; ?>
-            <div class="user-actions">
-                <button class="user-menu-btn" id="userMenuBtn"><i class="fas fa-user"></i></button>
-                <a href="carrinho.php" class="cart-btn">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span class="cart-counter" id="cartCounter">0</span>
-                </a>
-                <div class="user-dropdown" id="userDropdown">
-                    <button class="dropdown-btn" id="loginBtn"><i class="fas fa-sign-in-alt"></i> Entrar</button>
-                    <button class="dropdown-btn" id="registerBtn"><i class="fas fa-user-plus"></i> Cadastrar</button>
-                </div>
-            </div>
-        </div>
-    </header>
+    <body>
+    <?php include "nav.php"; ?>
+
+    <main class="main-content">
+    ...
 
     <main class="main-content">
         <div class="container">
