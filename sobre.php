@@ -23,9 +23,12 @@
                 <div class="about-content">
                     <div class="about-text">
                         <h2>Na Pulso Tech, unimos inovação, criatividade e espírito empreendedor para transformar ideias em realidade.</h2>
-                        <p>Somos uma startup criada por alunos do curso técnico em Informática do CTI, com o objetivo de aplicar nossos aprendizados em um projeto prático e colaborativo.</p>
-                        <p>Nosso foco é o desenvolvimento de um e-commerce moderno e acessível, onde oferecemos pulseiras exclusivas que representam os cursos do CTI. Cada produto carrega significado, identidade e a energia de quem faz parte dessa trajetória acadêmica.</p>
-                        <p>Além de vender pulseiras, nossa missão é valorizar a experiência estudantil, fortalecer o sentimento de pertencimento e mostrar que tecnologia também pode caminhar lado a lado com criatividade e estilo.</p>
+                        
+                        <h3>Missão</h3>
+                        <p>Oferecer pulseiras exclusivas que representem os cursos do CTI, unindo inovação, criatividade e tecnologia para valorizar a experiência estudantil, fortalecer o sentimento de pertencimento e transformar ideias em produtos que carregam significado e identidade.</p>
+                        
+                        <h3>Visão</h3>
+                        <p>Representar a identidade dos cursos do CTI por meio de produtos criativos e simbólicos, deixando uma marca positiva e memorável na trajetória acadêmica dos estudantes.</p>
                     </div>
                     <div class="about-icon">
                         <i class="fas fa-bullhorn"></i>
