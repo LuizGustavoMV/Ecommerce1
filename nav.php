@@ -32,12 +32,12 @@ $currentPage = basename($_SERVER['PHP_SELF']);
                 <span class="cart-counter" id="cartCounter">0</span>
             </a>
             <div class="user-dropdown" id="userDropdown">
-                <button class="dropdown-btn" id="loginBtn" data-modal-target="#loginModal">
+                <a href="login.php" class="dropdown-btn">
                     <i class="fas fa-sign-in-alt"></i> Entrar
-                </button>
-                <button class="dropdown-btn" id="registerBtn" data-modal-target="#registerModal">
+                </a>
+                <a href="cadastro.php" class="dropdown-btn">
                     <i class="fas fa-user-plus"></i> Cadastrar
-                </button>
+                </a>
             </div>
         </div>
     </div>

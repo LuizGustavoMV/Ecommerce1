@@ -1,6 +1,6 @@
-/* Base do Modal */
+/* Base do Modal - ESSENCIAL PARA TODOS OS MODAIS FUNCIONAREM */
 .modal {
-    display: none;
+    display: none; /* Começa escondido */
     position: fixed;
     top: 0;
     left: 0;
@@ -16,56 +16,10 @@
 }
 
 .modal.active {
-    display: flex;
+    display: flex; /* Classe que torna o modal visível */
 }
 
-/* Modal de Autenticação (Login/Registro) */
-.modal-content {
-    background: white;
-    border-radius: var(--radius-2xl);
-    padding: var(--spacing-3xl);
-    max-width: 450px;
-    width: 100%;
-    position: relative;
-    color: var(--gray-800);
-    text-align: center;
-    box-shadow: var(--shadow-2xl);
-    animation: slideUp var(--transition-normal);
-}
-
-.modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: var(--spacing-2xl);
-}
-
-.modal-header .logo img {
-    height: 60px;
-}
-
-.close-btn {
-    background: var(--gray-100);
-    border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: var(--radius-full);
-    font-size: 20px;
-    cursor: pointer;
-    color: var(--gray-600);
-    transition: all var(--transition-normal);
-}
-.close-btn:hover {
-    background: var(--gray-200);
-}
-
-.user-icon {
-    font-size: 80px;
-    margin-bottom: var(--spacing-lg);
-    color: var(--primary-color);
-}
-
-/* Modal de Produto */
+/* Modal de Produto - Estilos específicos que você já tinha */
 .product-modal-new-content {
     background-color: white;
     max-width: 900px;
@@ -196,79 +150,4 @@
     .product-modal-new-body {
         flex-direction: column;
     }
-}
-/* Em assets/css/components/modal.css */
-
-/* Ajuste no preenchimento geral do modal de autenticação */
-.modal-content {
-    background: white;
-    border-radius: var(--radius-2xl);
-    padding: var(--spacing-2xl); /* REDUZIDO de 3xl para 2xl */
-    max-width: 450px;
-    width: 100%;
-    position: relative;
-    color: var(--gray-800);
-    text-align: center;
-    box-shadow: var(--shadow-2xl);
-    animation: slideUp var(--transition-normal);
-}
-
-/* ===== FORMULÁRIO DE AUTENTICAÇÃO (VERSÃO REFINADA) ===== */
-.auth-form {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-md); /* REDUZIDO de lg para md */
-}
-
-.form-group {
-    text-align: left;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: var(--spacing-sm);
-    font-weight: 600;
-    color: var(--gray-700);
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.form-group input {
-    width: 100%;
-    padding: var(--spacing-md); /* REDUZIDO de lg para md */
-    border: 2px solid var(--gray-200);
-    border-radius: var(--radius-lg);
-    font-size: 16px;
-    font-family: var(--font-primary);
-    transition: all var(--transition-normal);
-    background: var(--gray-50);
-}
-
-.form-group input:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    background: white;
-    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
-}
-
-.auth-btn {
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
-    color: white;
-    border: none;
-    padding: 14px var(--spacing-xl); /* AJUSTADO para ficar menos alto */
-    border-radius: var(--radius-full);
-    font-weight: 700;
-    font-size: 16px;
-    cursor: pointer;
-    transition: all var(--transition-normal);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-top: var(--spacing-sm);
-}
-
-.auth-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-xl);
-    background: linear-gradient(135deg, var(--primary-dark) 0%, #1e40af 100%);
 }

@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PulsoTech - Inovação e Tecnologia</title> <link rel="stylesheet" href="assets/css/global.css">
+    <title>PulsoTech - Inovação e Tecnologia</title> 
+    <link rel="stylesheet" href="assets/css/global.css">
     <link rel="stylesheet" href="assets/css/components/header.css">
     <link rel="stylesheet" href="assets/css/components/footer.css">
     <link rel="stylesheet" href="assets/css/components/card.css">
@@ -48,55 +49,6 @@
         </section>
     </main>
 
-    <div class="modal" id="loginModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <div class="logo img">
-                    <img src="assets/images/logo-Photoroom.png" alt="Logo">
-                </div>
-                <button class="close-btn" data-close-modal>&times;</button>
-            </div>
-            <div class="user-icon">
-                <i class="fas fa-user-circle"></i>
-            </div><form class="auth-form">
-                <div class="form-group">
-                    <label>e-mail:</label>
-                    <input type="email" required>
-                </div>
-                <div class="form-group">
-                    <label>Senha:</label>
-                    <input type="password" required>
-                </div>
-                <button type="submit" class="auth-btn">INICIAR SESSÃO</button>
-            </form>
-        </div>
-    </div>
-    <div class="modal" id="registerModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <div class="logo img">
-                    <img src="assets/images/logo-Photoroom.png" alt="Logo">
-                </div>
-                <button class="close-btn" data-close-modal>&times;</button>
-            </div>
-            <div class="user-icon"><i class="fas fa-user-circle"></i></div>
-            <form class="auth-form">
-                <div class="form-group">
-                    <label>Nome:</label>
-                    <input type="text" required>
-                </div>
-                <div class="form-group">
-                    <label>e-mail:</label>
-                    <input type="email" required>
-                </div><div class="form-group">
-                    <label>Senha:</label>
-                    <input type="password" required>
-                </div>
-                <button type="submit" class="auth-btn">CADASTRAR-SE</button>
-            </form>
-        </div>
-    </div>
-
     <div class="modal" id="infoModal">
         <div class="product-modal-new-content">
             <button class="close-btn-new" data-close-modal>&times;</button>
@@ -121,7 +73,6 @@
                         <button class="quantity-btn increase">+</button>
                     </div>
                     <div class="action-buttons">
-                        <button class="btn-comprar" data-id="info-01" data-name="Pulseira Informática" data-price="9.99" data-image="assets/images/PulseiraInfo.png">COMPRAR</button>
                         <button class="btn-add-cart add-to-cart-btn" data-id="info-01" data-name="Pulseira Informática" data-price="9.99" data-image="PulseiraInfo.png">ADICIONAR AO CARRINHO</button>
                     </div>
                 </div>
@@ -151,7 +102,6 @@
                         <button class="quantity-btn increase">+</button>
                     </div>
                     <div class="action-buttons">
-                        <button class="btn-comprar" data-id="eletro-01" data-name="Pulseira Eletrônica" data-price="9.99" data-image="assets/images/PulseiraEletro.png">COMPRAR</button>
                         <button class="btn-add-cart add-to-cart-btn" data-id="eletro-01" data-name="Pulseira Eletrônica" data-price="9.99" data-image="assets/images/PulseiraEletro.png">ADICIONAR AO CARRINHO</button>
                     </div>
                 </div>
@@ -181,7 +131,6 @@
                         <button class="quantity-btn increase">+</button>
                     </div>
                     <div class="action-buttons">
-                        <button class="btn-comprar" data-id="mec-01" data-name="Pulseira Mecânica" data-price="9.99" data-image="assets/images/PulseiraMec.png">COMPRAR</button>
                         <button class="btn-add-cart add-to-cart-btn" data-id="mec-01" data-name="Pulseira Mecânica" data-price="9.99" data-image="assets/images/PulseiraMec.png">ADICIONAR AO CARRINHO</button>
                     </div>
                 </div>
@@ -209,7 +158,6 @@
                         <button class="quantity-btn increase">+</button>
                     </div>
                     <div class="action-buttons">
-                        <button class="btn-comprar" data-id="cti-01" data-name="Pulseira CTI" data-price="9.99" data-image="assets/images/PulseiraCTI.png">COMPRAR</button>
                         <button class="btn-add-cart add-to-cart-btn" data-id="cti-01" data-name="Pulseira CTI" data-price="9.99" data-image="assets/images/PulseiraCTI.png">ADICIONAR AO CARRINHO</button>
                     </div>
                 </div>
@@ -237,14 +185,14 @@
                         <button class="quantity-btn increase">+</button>
                     </div>
                     <div class="action-buttons">
-                        <button class="btn-comprar" data-id="combo-01" data-name="Combo Pulseiras CTI" data-price="16.99" data-image="assets/images/PulseiraCTI.png">COMPRAR</button>
                         <button class="btn-add-cart add-to-cart-btn" data-id="combo-01" data-name="Combo Pulseiras CTI" data-price="16.99" data-image="assets/images/PulseiraCTI.png">ADICIONAR AO CARRINHO</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
     <?php include "footer.php"; ?> 
     <script src="assets/scripts/script.js"></script>
 </body>
-</html> 
+</html>
