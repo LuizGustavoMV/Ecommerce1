@@ -7,7 +7,7 @@ if (!isset($_SESSION['admin']) || $_SESSION['admin'] == false) {
 }
 
 
-include "util.php"; 
+include "../util.php"; 
 
 $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 if (!$id) {
@@ -45,7 +45,7 @@ if (!$user) {
     <?php 
     // Seu include original para o nav/header
     // Supondo que este arquivo esteja em /usuario/, o include precisa ser ../nav.php
-    include 'nav.php'; 
+    include '../nav.php'; 
     ?>
     <main class="main-content">
         <div class="admin-container">
@@ -90,6 +90,6 @@ if (!$user) {
             </div>
         </div>
     </main>
-    <?php include 'footer.php'; ?>
+    <?php include '../footer.php'; ?>
 </body>
 </html>

@@ -1,3 +1,9 @@
+<?php
+session_start();
+
+// Pega o nome do arquivo da página atual para destacar o link ativo no menu
+$currentPage = basename($_SERVER['PHP_SELF']);
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>

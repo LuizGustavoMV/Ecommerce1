@@ -1,5 +1,5 @@
 <?php
-include ("util.php");
+include ("../util.php");
 session_start();
 
 if (!isset($_SESSION['admin']) || $_SESSION['admin'] == false) {

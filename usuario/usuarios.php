@@ -1,7 +1,7 @@
 <?php
 session_start();
 // O caminho para o util.php precisa "subir" um nível de pasta.
-include "util.php";
+include "../util.php";
 
 
 
@@ -35,7 +35,7 @@ try {
 <body>
     <?php 
     // O include do PHP ainda precisa do ../ para encontrar o nav.php na pasta raiz
-    include "nav.php"; 
+    include "../nav.php"; 
     ?>
 
     <main class="main-content">
@@ -85,8 +85,8 @@ try {
     </main>
 
     <?php 
-    // O include do PHP também precisa do ../
-    include "footer.php"; 
+    include "../footer.php"; 
     ?>
+    <script src="assets/scripts/script.js"></script>
 </body>
 </html>

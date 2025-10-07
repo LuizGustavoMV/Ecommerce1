@@ -33,7 +33,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     document.querySelectorAll('[data-modal-target]').forEach(trigger => {
-        trigger.addEventListener('click', () => {
+        // =========================================================================
+        // <<< CORREÇÃO AQUI: Adicionamos (event) e a linha event.preventDefault()
+        // =========================================================================
+        trigger.addEventListener('click', (event) => {
+            event.preventDefault(); // Impede o link de adicionar '#' na URL e pular a página.
+
             if (userDropdown) {
                 userDropdown.classList.remove('active');
             }

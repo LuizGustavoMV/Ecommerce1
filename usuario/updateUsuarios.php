@@ -1,5 +1,5 @@
 <?php
-include "util.php";
+include "../util.php";
 session_start();
 
 // Garante que apenas administradores possam executar este script

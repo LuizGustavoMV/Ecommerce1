@@ -24,7 +24,7 @@ if (!isset($_SESSION['admin']) || $_SESSION['admin'] == false) {
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <?php include 'nav.php'; ?>
+    <?php include '../nav.php'; ?>
 
     <main class="main-content">
         <div class="admin-container">
@@ -56,6 +56,6 @@ if (!isset($_SESSION['admin']) || $_SESSION['admin'] == false) {
         </div>
     </main>
 
-    <?php include 'footer.php'; ?>
+    <?php include '../footer.php'; ?>
 </body>
 </html>
