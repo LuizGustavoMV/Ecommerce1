@@ -14,7 +14,7 @@ $currentPage = basename($_SERVER['PHP_SELF']);
                 <i class="fas fa-info-circle"></i> SOBRE
             </a>
 
-            <a href="produtos.php" class="nav-btn <?php echo ($currentPage == 'produtos.php' || $currentPage == 'home.php') ? 'active' : ''; ?>">
+            <a href="home.php" class="nav-btn <?php echo ($currentPage == 'produtos.php' || $currentPage == 'home.php') ? 'active' : ''; ?>">
                 <i class="fas fa-shopping-bag"></i> PRODUTOS
             </a>
 
@@ -45,7 +45,7 @@ $currentPage = basename($_SERVER['PHP_SELF']);
                          <a href="insertAdmin.php" class="dropdown-btn">
                             <i class="fas fa-box-open"></i> Criar Admin
                         </a>
-                        <a href="admin_produtos.php" class="dropdown-btn">
+                        <a href="produto/produtos.php" class="dropdown-btn">
                             <i class="fas fa-box-open"></i> Produtos
                         </a>
                         <a href="logout.php" class="dropdown-btn">
@@ -56,9 +56,6 @@ $currentPage = basename($_SERVER['PHP_SELF']);
                         
                         <a href="logout.php" class="dropdown-btn">
                             <i class="fas fa-sign-out-alt"></i> Sair
-                        </a>
-                         <a href="insertAdmin.php" class="dropdown-btn">
-                            <i class="fas fa-box-open"></i> Criar Admin
                         </a>
 
                     <?php endif; ?>

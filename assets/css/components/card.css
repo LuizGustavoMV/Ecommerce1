@@ -38,7 +38,6 @@
 .product-card.cti-premium:hover { box-shadow: 0 25px 50px -12px rgba(5, 73, 199, 0.4); }
 
 .product-card.featured::after {
-    content: 'DESTAQUE';
     position: absolute;
     top: var(--spacing-md);
     right: var(--spacing-md);
