@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "../util.php";
+include "util.php";
 
 if (!isset($_SESSION['admin']) || $_SESSION['admin'] == false) {
     header("Location: ../home.php");
@@ -48,7 +48,7 @@ if (!$produto) {
             <a href="produto/produtos.php" class="add-btn" style="background: var(--gray-600); margin-bottom: 20px;"><i class="fas fa-arrow-left"></i> Voltar para a Lista</a>
 
             <div class="auth-box" style="max-width: none; margin: 0; text-align: left;">
-                <form class="auth-form" method="POST" action="admin/update_produto.php" enctype="multipart/form-data">
+                <form class="auth-form" method="POST" action="produto/updateProduto.php" enctype="multipart/form-data">
                     <input type='hidden' name='id_produto' value='<?php echo $produto['id_produto']; ?>'>
                     <input type='hidden' name='imagem_atual' value='<?php echo htmlspecialchars($produto['imagem']); ?>'>
                     

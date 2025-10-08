@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '../util.php';
+include 'util.php';
 
 
 // Validação básica dos dados recebidos.
@@ -11,7 +11,7 @@ if (empty($_POST['nome']) || empty($_POST['descricao']) || empty($_POST['valor_u
 try {
     // --- LÓGICA DE UPLOAD DA IMAGEM ---
     // Adaptei seu caminho de imagens, mas recomendo usar 'assets/images/products' para consistência.
-    $target_dir = "../imagens/produto/"; 
+    $target_dir = "assets/images/uploads/"; 
     if (!is_dir($target_dir)) {
         mkdir($target_dir, 0755, true);
     }

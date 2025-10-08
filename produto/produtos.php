@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '../util.php';
+include 'util.php';
 
 // Lógica para buscar os produtos no banco.
 try {
@@ -29,7 +29,7 @@ try {
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <?php include '../nav.php'; ?>
+    <?php include 'nav.php'; ?>
 
     <main class="main-content">
         <div class="admin-container">
@@ -90,7 +90,7 @@ try {
         </div>
     </main>
 
-    <?php include '../footer.php'; ?>
+    <?php include 'footer.php'; ?>
     <script src="assets/scripts/script.js"></script>
 </body>
 </html>

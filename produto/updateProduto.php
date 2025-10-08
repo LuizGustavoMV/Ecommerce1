@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '../util.php';
+include 'util.php';
 
 
 // Validação básica dos dados recebidos.
@@ -20,7 +20,7 @@ try {
     if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] == 0) {
         
         // CORREÇÃO: O caminho precisa "subir" um nível para sair da pasta 'admin'.
-        $target_dir = "../imagens/produtos/"; 
+        $target_dir = "assets/images/uploads/"; 
         if (!is_dir($target_dir)) {
             mkdir($target_dir, 0755, true);
         }
