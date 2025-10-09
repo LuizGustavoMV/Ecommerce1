@@ -32,10 +32,8 @@
 .product-card.mec:hover { box-shadow: 0 25px 50px -12px rgba(239, 68, 68, 0.4); }
 .product-card.info { border-color: var(--info-color); background: var(--info-gradient); color: white; }
 .product-card.info:hover { box-shadow: 0 25px 50px -12px rgba(59, 130, 246, 0.4); }
-.product-card.cti-card { border-color: var(--cti-color); background: var(--cti-gradient); color: white; }
 .product-card.cti-card:hover { box-shadow: 0 25px 50px -12px rgba(107, 114, 128, 0.4); }
-.product-card.cti-premium { border-color: var(--combo-color); background: var(--combo-gradient); color: white; }
-.product-card.cti-premium:hover { box-shadow: 0 25px 50px -12px rgba(5, 73, 199, 0.4); }
+.product-card.cti-card { border-color: var(--cti-color); background: var(--mec-gradient); color: white; }
 
 .product-card.featured::after {
     position: absolute;
@@ -98,4 +96,13 @@
     .products-grid {
         grid-template-columns: 1fr;
     }
+}
+
+.product-card.cti-card {
+    /* Usamos a própria imagem do card como fundo */
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.1)), url('../images/PulseiraCTI.png');
+    
+    /* Ajustes para a imagem de fundo preencher o card */
+    background-size: cover;
+    background-position: center;
 }

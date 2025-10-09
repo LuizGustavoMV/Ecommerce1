@@ -1,6 +1,4 @@
 <?php
-// --- PARTE 1: LÓGICA PHP DO LOGIN ---
-// Esta parte do código roda antes de qualquer HTML ser enviado para o navegador.
 
 session_start();
 
@@ -111,6 +109,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <button type="submit" class="auth-btn">Entrar</button>
                 </form>
                 <p class="auth-switch-link">Não tem uma conta? <a href="cadastro.php">Cadastre-se</a></p>
+                 <a href="esqueci.php">Esqueci minha senha</a></p>
             </div>
         </div>
     </main>

@@ -1,15 +1,33 @@
 <?php
 session_start();
+include 'util.php';
 
 // Pega o nome do arquivo da página atual para destacar o link ativo no menu
 $currentPage = basename($_SERVER['PHP_SELF']);
+
+try {
+    $conn = conecta();
+    
+    // Busca no banco de dados todos os produtos que NÃO estão marcados como excluídos
+    $sql_produtos = "SELECT * FROM produto WHERE excluido = FALSE ORDER BY nome ASC";
+    $stmt_produtos = $conn->prepare($sql_produtos);
+    $stmt_produtos->execute();
+    $produtos = $stmt_produtos->fetchAll(PDO::FETCH_ASSOC);
+
+} catch (PDOException $e) {
+    // Se der erro, a lista de produtos ficará vazia para não quebrar a página.
+    $produtos = [];
+    error_log("Erro ao buscar produtos na home: " . $e->getMessage());
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <base href="http://localhost:3000/">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PulsoTech - Inovação e Tecnologia</title> 
+
     <link rel="stylesheet" href="assets/css/global.css">
     <link rel="stylesheet" href="assets/css/components/header.css">
     <link rel="stylesheet" href="assets/css/components/footer.css">
@@ -24,147 +42,69 @@ $currentPage = basename($_SERVER['PHP_SELF']);
     <main class="main-content">
         <section class="products-section">
             <div class="container">
-                <div class="products-grid">
-                    <div class="product-card eletro" data-modal-target="#eletroModal">
-                        <div class="product-image"><img src="assets/images/PulseiraEletro.png" alt="Pulseira Eletro"></div>
-                        <font color="White"><b>ELETRO</b><br></font>
-                        <div class="product-price">R$14,99</div>
+                
+                <?php if (empty($produtos)): ?>
+                    <div style="text-align: center; padding: 50px;">
+                        <h2>Nenhum produto disponível no momento.</h2>
+                        <p>Volte em breve para conferir as novidades!</p>
                     </div>
-                    <div class="product-card mec featured" data-modal-target="#mecModal">
-                        <div class="product-image"><img src="assets/images/PulseiraMec.png" alt="Pulseira Mecânica"></div>
-                         <font color="White"><b>MEC</b><br></font>
-                        <div class="product-price">R$14,99</div>
-                    </div>
-                    <div class="product-card info" data-modal-target="#infoModal">
-                        <div class="product-image"><img src="assets/images/PulseiraInfo.png" alt="Pulseira INFO"></div>
-                        <font color="White"><b>INFO</b><br></font>
-                        <div class="product-price">R$14,99</div>
-                    </div>
-                    <div class="product-card cti-card" data-modal-target="#ctiModal">
-                        <div class="product-image"><img src="assets/images/PulseiraCTI.png" alt="Pulseira CTI"></div>
-                        <font color="White"><b>CTI</b><br></font>
-                        <div class="product-price">R$14,99</div>
-                    </div>
-                </div>
+                <?php else: ?>
+                    <div class="products-grid">
+                        
+                        <?php foreach($produtos as $produto): ?>
+                            
+                            <div class="product-card <?php echo strtolower(htmlspecialchars($produto['nome'])); ?>" data-modal-target="#modal-<?php echo $produto['id_produto']; ?>">
+                                <div class="product-image"><img src="<?php echo htmlspecialchars($produto['imagem']); ?>" alt="<?php echo htmlspecialchars($produto['nome']); ?>"></div>
+                                <font color="White"><b><?php echo strtoupper(htmlspecialchars($produto['nome'])); ?></b><br></font>
+                                <div class="product-price">R$ <?php echo number_format($produto['valor_unitario'], 2, ',', '.'); ?></div>
+                            </div>
+
+                        <?php endforeach; ?>
+                        </div>
+                <?php endif; ?>
+
             </div>
         </section>
     </main>
 
-    <div class="modal" id="infoModal">
-        <div class="product-modal-new-content">
-            <button class="close-btn-new" data-close-modal>&times;</button>
-            <div class="product-modal-new-body">
-                <div class="product-modal-image-wrapper">
-                    <img src="assets/images/PulseiraInfo.png" alt="Pulseira Info">
-                </div>
-                <div class="product-modal-details-wrapper">
-                    <img src="assets/images/logo-Photoroom.png" alt="PulsoTech" class="modal-logo">
-                    <h2>Pulseira de INFO - Design Minimalista</h2>
-                    <p>
-                        Uma pulseira elegante e discreta, perfeita para o dia a dia. 
-                        Fabricada com borracha de alta qualidade, oferece conforto e durabilidade.
-                    </p>
-                    <div class="price-container">
-                        <span class="product-price-new">R$ 9,99</span>
-                        <span class="product-price-old">R$ 12,99</span>
+    <?php foreach($produtos as $produto): ?>
+        
+        <div class="modal" id="modal-<?php echo $produto['id_produto']; ?>">
+            <div class="product-modal-new-content">
+                <button class="close-btn-new" data-close-modal>&times;</button>
+                <div class="product-modal-new-body">
+                    <div class="product-modal-image-wrapper">
+                        <img src="<?php echo htmlspecialchars($produto['imagem']); ?>" alt="<?php echo htmlspecialchars($produto['nome']); ?>">
                     </div>
-                    <div class="quantity-selector-modal">
-                        <button class="quantity-btn decrease">-</button>
-                        <span class="quantity-value">1</span>
-                        <button class="quantity-btn increase">+</button>
-                    </div>
-                    <div class="action-buttons">
-                        <button class="btn-add-cart add-to-cart-btn" data-id="info-01" data-name="Pulseira Informática" data-price="9.99" data-image="PulseiraInfo.png">ADICIONAR AO CARRINHO</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal" id="eletroModal">
-        <div class="product-modal-new-content">
-            <button class="close-btn-new" data-close-modal>&times;</button>
-            <div class="product-modal-new-body">
-                <div class="product-modal-image-wrapper">
-                    <img src="assets/images/PulseiraEletro.png" alt="Pulseira Eletro">
-                </div>
-                <div class="product-modal-details-wrapper">
-                    <img src="assets/images/logo-Photoroom.png" alt="PulsoTech" class="modal-logo">
-                    <h2>Pulseira de ELETRO - Energia e Precisão</h2>
-                    <p>Mostre sua paixão por Eletrônica com esta pulseira vibrante. Feita para durar, 
-                        ela simboliza a energia e a precisão dos circuitos.
-                    </p>
-                    <div class="price-container">
-                        <span class="product-price-new">R$ 9,99</span>
-                        <span class="product-price-old">R$ 12,99</span>
-                    </div>
-                    <div class="quantity-selector-modal">
-                        <button class="quantity-btn decrease">-</button>
-                        <span class="quantity-value">1</span>
-                        <button class="quantity-btn increase">+</button>
-                    </div>
-                    <div class="action-buttons">
-                        <button class="btn-add-cart add-to-cart-btn" data-id="eletro-01" data-name="Pulseira Eletrônica" data-price="9.99" data-image="assets/images/PulseiraEletro.png">ADICIONAR AO CARRINHO</button>
+                    <div class="product-modal-details-wrapper">
+                        <img src="assets/images/logo-Photoroom.png" alt="PulsoTech" class="modal-logo">
+                        
+                        <h2><?php echo htmlspecialchars($produto['nome']); ?></h2>
+                        <p><?php echo htmlspecialchars($produto['descricao']); ?></p>
+
+                        <div class="price-container">
+                            <span class="product-price-new">R$ <?php echo number_format($produto['valor_unitario'], 2, ',', '.'); ?></span>
+                            </div>
+                        <div class="quantity-selector-modal">
+                            <button class="quantity-btn decrease">-</button>
+                            <span class="quantity-value">1</span>
+                            <button class="quantity-btn increase">+</button>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="btn-add-cart add-to-cart-btn" 
+                                    data-id="<?php echo $produto['id_produto']; ?>" 
+                                    data-name="<?php echo htmlspecialchars($produto['nome']); ?>" 
+                                    data-price="<?php echo $produto['valor_unitario']; ?>" 
+                                    data-image="<?php echo htmlspecialchars($produto['imagem']); ?>">
+                                ADICIONAR AO CARRINHO
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="modal" id="mecModal">
-        <div class="product-modal-new-content">
-            <button class="close-btn-new" data-close-modal>&times;</button>
-            <div class="product-modal-new-body">
-                <div class="product-modal-image-wrapper">
-                    <img src="assets/images/PulseiraMec.png" alt="Pulseira Mecânica">
-                </div>
-                <div class="product-modal-details-wrapper">
-                    <img src="assets/images/logo-Photoroom.png" alt="PulsoTech" class="modal-logo">
-                    <h2>Pulseira de MEC - Força e Engenhosidade</h2>
-                    <p> Esta pulseira robusta representa a força, 
-                        a durabilidade e a engenhosidade das grandes máquinas e projetos mecânicos.
-                    </p>
-                    <div class="price-container">
-                        <span class="product-price-new">R$ 9,99</span>
-                        <span class="product-price-old">R$ 12,99</span>
-                    </div>
-                    <div class="quantity-selector-modal">
-                        <button class="quantity-btn decrease">-</button>
-                        <span class="quantity-value">1</span>
-                        <button class="quantity-btn increase">+</button>
-                    </div>
-                    <div class="action-buttons">
-                        <button class="btn-add-cart add-to-cart-btn" data-id="mec-01" data-name="Pulseira Mecânica" data-price="9.99" data-image="assets/images/PulseiraMec.png">ADICIONAR AO CARRINHO</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal" id="ctiModal">
-        <div class="product-modal-new-content">
-            <button class="close-btn-new" data-close-modal>&times;</button>
-            <div class="product-modal-new-body">
-                <div class="product-modal-image-wrapper">
-                    <img src="assets/images/PulseiraCTI.png" alt="Pulseira CTI">
-                </div>
-                <div class="product-modal-details-wrapper">
-                    <img src="assets/images/logo-Photoroom.png" alt="PulsoTech" class="modal-logo">
-                    <h2>Pulseira CTI - Orgulho de Ser</h2>
-                    <p>O símbolo oficial de todos os cursos. Carregue o orgulho de fazer parte do CTI com esta pulseira clássica e mostre sua identidade.</p>
-                    <div class="price-container">
-                        <span class="product-price-new">R$ 9,99</span>
-                        <span class="product-price-old">R$ 12,99</span>
-                    </div>
-                    <div class="quantity-selector-modal">
-                        <button class="quantity-btn decrease">-</button>
-                        <span class="quantity-value">1</span>
-                        <button class="quantity-btn increase">+</button>
-                    </div>
-                    <div class="action-buttons">
-                        <button class="btn-add-cart add-to-cart-btn" data-id="cti-01" data-name="Pulseira CTI" data-price="9.99" data-image="assets/images/PulseiraCTI.png">ADICIONAR AO CARRINHO</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
+    <?php endforeach; ?>
     <?php include "footer.php"; ?> 
     <script src="assets/scripts/script.js"></script>
 </body>
