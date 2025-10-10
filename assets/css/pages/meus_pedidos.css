@@ -1,0 +1,127 @@
+.page-title {
+    margin-bottom: 30px;
+    border-bottom: 1px solid var(--gray-200);
+    padding-bottom: 20px;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 15px;
+    border: 1px solid #c3e6cb;
+    border-radius: var(--radius-md);
+    margin-bottom: 30px;
+}
+
+.orders-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.no-orders-message {
+    text-align: center;
+    color: var(--gray-500);
+    padding: 40px;
+    background-color: var(--gray-50);
+    border-radius: var(--radius-lg);
+}
+
+.order-item {
+    background-color: white;
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.order-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    cursor: pointer;
+    background-color: var(--gray-50);
+}
+
+.order-summary:hover {
+    background-color: var(--gray-100);
+}
+
+.order-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.order-info strong {
+    font-size: 18px;
+    color: var(--gray-800);
+}
+
+.order-info span {
+    font-size: 14px;
+    color: var(--gray-500);
+}
+
+.status-badge {
+    padding: 5px 12px;
+    border-radius: var(--radius-full);
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+}
+
+.status-reservado, .status-aguardando-pagamento { background-color: #f39c12; } /* Laranja */
+.status-entregue { background-color: #27ae60; } /* Verde */
+.status-cancelado { background-color: #e74c3c; } /* Vermelho */
+
+
+.order-details {
+    padding: 20px;
+    border-top: 1px solid var(--gray-200);
+}
+
+.product-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--gray-100);
+}
+.product-item:last-child {
+    border-bottom: none;
+}
+
+.product-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+}
+
+.product-info {
+    flex-grow: 1;
+}
+
+.product-name {
+    font-weight: bold;
+}
+
+.product-quantity {
+    font-size: 14px;
+    color: var(--gray-500);
+}
+
+.product-price {
+    font-weight: bold;
+    text-align: right;
+}
+
+.order-total {
+    text-align: right;
+    font-size: 18px;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px solid var(--gray-200);
+}

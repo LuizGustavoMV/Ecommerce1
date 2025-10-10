@@ -123,15 +123,34 @@
     font-weight: bold;
     cursor: pointer;
 }
-.btn-comprar {
-    background-color: #007bff;
-    color: white;
-    border: none;
-}
+
 .btn-add-cart {
     background-color: white;
     color: #007bff;
     border: 2px solid #007bff;
+}
+
+/* Adicionar no final do seu arquivo de CSS do modal/card */
+
+.action-buttons .add-to-cart-btn {
+    display: inline-block; /* Faz o <a> se comportar como um botão */
+    text-decoration: none; /* Remove o sublinhado do link */
+    text-align: center;    /* Centraliza o texto */
+    
+    /* Garante que os estilos de botão sejam aplicados */
+    padding: 12px 20px;
+    border: 2px solid var(--primary-color);
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: bold;
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+}
+
+.action-buttons .add-to-cart-btn:hover {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
 }
 
 @keyframes slideUp {

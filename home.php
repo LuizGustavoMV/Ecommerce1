@@ -10,7 +10,10 @@ try {
     
     // Busca no banco de dados todos os produtos que NÃO estão marcados como excluídos
     $sql_produtos = "SELECT * FROM produto WHERE excluido = FALSE ORDER BY nome ASC";
+    
+    // ✨ CORREÇÃO AQUI: Trocado 'a' pela variável de conexão '$conn' ✨
     $stmt_produtos = $conn->prepare($sql_produtos);
+
     $stmt_produtos->execute();
     $produtos = $stmt_produtos->fetchAll(PDO::FETCH_ASSOC);
 
@@ -79,7 +82,7 @@ try {
                     <div class="product-modal-details-wrapper">
                         <img src="assets/images/logo-Photoroom.png" alt="PulsoTech" class="modal-logo">
                         
-                        <h2><?php echo htmlspecialchars($produto['nome']); ?></h2>
+                        <h2><?php echo htmlspecialchars($produto['titulo_modal'] ?? $produto['nome']); ?></h2>
                         <p><?php echo htmlspecialchars($produto['descricao']); ?></p>
 
                         <div class="price-container">
@@ -91,13 +94,11 @@ try {
                             <button class="quantity-btn increase">+</button>
                         </div>
                         <div class="action-buttons">
-                            <button class="btn-add-cart add-to-cart-btn" 
-                                    data-id="<?php echo $produto['id_produto']; ?>" 
-                                    data-name="<?php echo htmlspecialchars($produto['nome']); ?>" 
-                                    data-price="<?php echo $produto['valor_unitario']; ?>" 
-                                    data-image="<?php echo htmlspecialchars($produto['imagem']); ?>">
+                            
+                            <a href="carrinho.php?operacao=incluir&id_produto=<?php echo $produto['id_produto']; ?>" class="btn-add-cart add-to-cart-btn">
                                 ADICIONAR AO CARRINHO
-                            </button>
+                            </a>
+
                         </div>
                     </div>
                 </div>

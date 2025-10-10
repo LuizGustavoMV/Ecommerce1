@@ -1,137 +1,87 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // --- LÓGICA PARA ABRIR E FECHAR MODAIS ---
+    const modalButtons = document.querySelectorAll('[data-modal-target]');
+    const closeButtons = document.querySelectorAll('[data-close-modal]');
 
-    // ===== LÓGICA DO MENU DROPDOWN DE USUÁRIO =====
-    const userMenuBtn = document.getElementById('userMenuBtn');
-    const userDropdown = document.getElementById('userDropdown');
-
-    if (userMenuBtn && userDropdown) {
-        userMenuBtn.addEventListener('click', (event) => {
-            event.stopPropagation();
-            userDropdown.classList.toggle('active');
-        });
-
-        document.addEventListener('click', (event) => {
-            if (!userDropdown.contains(event.target) && userDropdown.classList.contains('active')) {
-                userDropdown.classList.remove('active');
-            }
-        });
-    }
-
-    // ===== GESTÃO DE TODOS OS MODAIS =====
-    const allModals = document.querySelectorAll('.modal');
-
-    function openModal(modal) {
-        if (modal) {
-            modal.classList.add('active');
-        }
-    }
-
-    function closeModal(modal) {
-        if (modal) {
-            modal.classList.remove('active');
-        }
-    }
-
-    document.querySelectorAll('[data-modal-target]').forEach(trigger => {
-        // =========================================================================
-        // <<< CORREÇÃO AQUI: Adicionamos (event) e a linha event.preventDefault()
-        // =========================================================================
-        trigger.addEventListener('click', (event) => {
-            event.preventDefault(); // Impede o link de adicionar '#' na URL e pular a página.
-
-            if (userDropdown) {
-                userDropdown.classList.remove('active');
-            }
-            const modal = document.querySelector(trigger.dataset.modalTarget);
+    modalButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const modal = document.querySelector(button.dataset.modalTarget);
             openModal(modal);
         });
     });
 
-    allModals.forEach(modal => {
-        modal.addEventListener('click', e => {
-            if (e.target.hasAttribute('data-close-modal') || e.target === modal) {
-                closeModal(modal);
-            }
+    closeButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const modal = button.closest('.modal');
+            closeModal(modal);
         });
     });
+
+    function openModal(modal) {
+        if (modal == null) return;
+        modal.classList.add('active');
+    }
+
+    function closeModal(modal) {
+        if (modal == null) return;
+        modal.classList.remove('active');
+    }
     
-    // ===== LÓGICA DO FORMULÁRIO DE CONTATO (SUPORTE) =====
-    const contactForm = document.querySelector('.contact-form');
-    if (contactForm) {
-        const confirmacaoModal = document.getElementById('confirmacaoModal');
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            contactForm.reset();
-            openModal(confirmacaoModal);
+    // --- LÓGICA PARA O MENU DROPDOWN DO USUÁRIO ---
+    const userMenuBtn = document.getElementById('userMenuBtn');
+    const userDropdown = document.getElementById('userDropdown');
+    if(userMenuBtn && userDropdown) {
+        userMenuBtn.addEventListener('click', () => {
+            userDropdown.classList.toggle('active');
+        });
+        // Fecha o menu se clicar fora dele
+        document.addEventListener('click', (e) => {
+            if (!userMenuBtn.contains(e.target) && !userDropdown.contains(e.target)) {
+                userDropdown.classList.remove('active');
+            }
         });
     }
 
+    // =========================================================
+    //       ✨ A MÁGICA DA QUANTIDADE ESTÁ AQUI ✨
+    // =========================================================
+    // --- LÓGICA PARA O SELETOR DE QUANTIDADE NOS MODAIS ---
+    const quantitySelectors = document.querySelectorAll('.quantity-selector-modal');
 
-    // ===== LÓGICA INTERATIVA PARA OS MODAIS DE PRODUTO =====
-    
-    // --- Seletor de Quantidade (+ e -) ---
-    const todosOsSeletores = document.querySelectorAll('.quantity-selector-modal');
+    quantitySelectors.forEach(selector => {
+        const decreaseBtn = selector.querySelector('.decrease');
+        const increaseBtn = selector.querySelector('.increase');
+        const quantitySpan = selector.querySelector('.quantity-value');
+        
+        // Encontra o botão "Adicionar ao Carrinho" DENTRO do mesmo modal
+        const modal = selector.closest('.modal');
+        const addToCartLink = modal.querySelector('.add-to-cart-btn');
 
-    todosOsSeletores.forEach(seletor => {
-        const btnDiminuir = seletor.querySelector('.decrease');
-        const btnAumentar = seletor.querySelector('.increase');
-        const valorQuantidade = seletor.querySelector('.quantity-value');
+        // Pega o link original sem a quantidade
+        const baseLink = addToCartLink.getAttribute('href');
 
-        if (btnDiminuir && btnAumentar && valorQuantidade) {
-            btnAumentar.addEventListener('click', () => {
-                let quantidadeAtual = parseInt(valorQuantidade.textContent);
-                quantidadeAtual++;
-                valorQuantidade.textContent = quantidadeAtual;
-            });
+        const updateLink = (quantity) => {
+            // Atualiza o href do link para incluir a quantidade
+            addToCartLink.setAttribute('href', `${baseLink}&qtd=${quantity}`);
+        };
 
-            btnDiminuir.addEventListener('click', () => {
-                let quantidadeAtual = parseInt(valorQuantidade.textContent);
-                if (quantidadeAtual > 1) {
-                    quantidadeAtual--;
-                    valorQuantidade.textContent = quantidadeAtual;
-                }
-            });
-        }
-    });
-
-    // --- Botões de Ação (Comprar e Adicionar ao Carrinho) ---
-    const todosOsBotoesComprar = document.querySelectorAll('.btn-comprar');
-    const todosOsBotoesAdicionar = document.querySelectorAll('.btn-add-cart');
-
-    todosOsBotoesComprar.forEach(botao => {
-        botao.addEventListener('click', () => {
-            const produtoId = botao.dataset.id;
-            const seletor = botao.closest('.product-modal-details-wrapper').querySelector('.quantity-value');
-            const quantidade = parseInt(seletor.textContent);
-
-            console.log(`Simulando COMPRA: Produto ID: ${produtoId}, Quantidade: ${quantidade}`);
-            alert(`Simulação de Compra:\nProduto: ${produtoId}\nQuantidade: ${quantidade}`);
+        increaseBtn.addEventListener('click', () => {
+            let currentQuantity = parseInt(quantitySpan.textContent);
+            currentQuantity++;
+            quantitySpan.textContent = currentQuantity;
+            updateLink(currentQuantity);
         });
-    });
 
-    todosOsBotoesAdicionar.forEach(botao => {
-        botao.addEventListener('click', () => {
-            const produtoId = botao.dataset.id;
-            const produtoNome = botao.dataset.name;
-            const seletor = botao.closest('.product-modal-details-wrapper').querySelector('.quantity-value');
-            const quantidade = parseInt(seletor.textContent);
-
-            console.log(`Simulando ADIÇÃO AO CARRINHO: Produto ID: ${produtoId}, Nome: ${produtoNome}, Quantidade: ${quantidade}`);
-            
-            const textoOriginal = botao.textContent;
-            botao.textContent = 'ADICIONADO!';
-            botao.style.backgroundColor = '#10b981';
-            botao.style.borderColor = '#10b981';
-            botao.style.color = 'white';
-
-            setTimeout(() => {
-                botao.textContent = textoOriginal;
-                botao.style.backgroundColor = '';
-                botao.style.borderColor = '';
-                botao.style.color = '';
-            }, 2000);
+        decreaseBtn.addEventListener('click', () => {
+            let currentQuantity = parseInt(quantitySpan.textContent);
+            if (currentQuantity > 1) {
+                currentQuantity--;
+                quantitySpan.textContent = currentQuantity;
+                updateLink(currentQuantity);
+            }
         });
-    });
 
-    console.log('PulsoTech site inicializado com todas as funções ativas!');
+        // Garante que o link esteja correto quando o modal abre
+        updateLink(1); 
+    });
 });

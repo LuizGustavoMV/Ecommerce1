@@ -182,6 +182,20 @@
     justify-content: center;
 }
 
+.dropdown-divider {
+    height: 1px;
+    background-color: var(--gray-200);
+    margin: 8px 0;
+}
+
+.dropdown-header {
+    padding: 10px 15px;
+    font-weight: bold;
+    color: var(--gray-700);
+    border-bottom: 1px solid var(--gray-200);
+    margin-bottom: 5px;
+}
+
 /* Responsividade do Header */
 @media (max-width: 768px) {
     .header .container {
