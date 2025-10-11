@@ -61,8 +61,8 @@ $currentPage = basename($_SERVER['PHP_SELF']);
                         <a href="produto/produtos.php" class="dropdown-btn">
                             <i class="fas fa-tachometer-alt"></i> Produtos
                         </a>
-                        <a href="meus_pedidos.php" class="dropdown-btn">
-                            <i class="fas fa-receipt"></i> Meus Pedidos
+                        <a href="insertAdmin.php" class="dropdown-btn">
+                            <i class="fas fa-receipt"></i> Adicionar admin
                         </a>
                         <div class="dropdown-divider"></div>
                         <a href="logout.php" class="dropdown-btn">

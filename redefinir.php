@@ -107,5 +107,6 @@ if (!$token) {
         </div>
     </main>
     <?php include 'footer.php'; ?>
+    <script src="assets/scripts/script.js"></script>
 </body>
 </html>

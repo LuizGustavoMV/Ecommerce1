@@ -1,7 +1,7 @@
 <?php
 session_start();
 // O caminho para o util.php precisa "subir" um nível de pasta.
-include "util.php";
+include "../util.php";
 
 
 

@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'util.php';
+include '../util.php';
 
 
 // Validação. Note que agora verificamos 'imagem_nome'.
@@ -11,7 +11,7 @@ if (empty($_POST['nome']) || empty($_POST['descricao']) || empty($_POST['valor_u
 try {
     // --- LÓGICA DE REFERÊNCIA DE IMAGEM (SEM UPLOAD) ---
     $nome_arquivo_imagem = $_POST['imagem_nome'];
-    $pasta_base_imagens = "assets/images/";
+    $pasta_base_imagens = "../assets/images/";
 
     // Monta o caminho relativo à raiz do site, que será salvo no banco
     $caminho_imagem_db = $pasta_base_imagens . $nome_arquivo_imagem;

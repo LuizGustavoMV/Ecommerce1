@@ -1,7 +1,7 @@
 <?php
 session_start();
 // CAMINHO CORRIGIDO: "Sobe" um nível para encontrar o util.php
-include 'util.php';
+include '../util.php';
 
 // Segurança: Se o usuário não estiver logado, redireciona para o login.
 if (!isset($_SESSION['statusConectado']) || $_SESSION['statusConectado'] !== true) {
@@ -103,7 +103,7 @@ try {
 <body>
     <?php 
     // CAMINHO CORRIGIDO: "Sobe" um nível para encontrar o nav.php
-    include 'nav.php'; 
+    include '../nav.php'; 
     ?>
 
     <main class="main-content">
@@ -157,7 +157,7 @@ try {
 
     <?php 
     // CAMINHO CORRIGIDO: "Sobe" um nível para encontrar o footer.php
-    include 'footer.php'; 
+    include '../footer.php'; 
     ?>
     <script src="assets/scripts/script.js"></script>
 </body>
